@@ -1,3 +1,3 @@
 # Sniproxy Docker Image
 
-A small sniproxy docker image based on alpine linux
+A small sniproxy docker image based on Alpine Linux

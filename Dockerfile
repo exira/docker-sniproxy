@@ -1,19 +1,10 @@
-#
-# Small sniproxy docker image with unblocking configurations based on alpine linux
-#
-# http://github.com/tenstartups/sniproxy-docker
-#
+FROM exira/base:3.4.2
 
-FROM tenstartups/alpine:latest
-
-MAINTAINER Marc Lennox <marc.lennox@gmail.com>
+MAINTAINER exira.com <info@exira.com>
 
 # Install packages.
 RUN \
   apk --update add sniproxy && \
   rm -rf /var/cache/apk/*
 
-# Add files.
-COPY entrypoint.sh /docker-entrypoint
-
-ENTRYPOINT ["/docker-entrypoint"]
+CMD ["/usr/sbin/sniproxy", "-f", "-c", "/etc/sniproxy/default.conf"]
