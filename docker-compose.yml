@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  sniproxy-gen:
+    image: exira/docker-gen
+    volumes:
+     - /var/run/docker.sock:/tmp/docker.sock:ro
+     - /etc/sniproxy
+    command: [-notify-sighup, sniproxy, -watch, -only-exposed, /etc/docker-gen/templates/sniproxy.tmpl, /etc/sniproxy/default.conf]
+
+  sniproxy:
+    image: exira/sniproxy:latest
+    restart: always
+    ports:
+     - 80:80
+     - 443:443
+    depends_on:
+     - sniproxy-gen
+    volumes_from:
+     - sniproxy-gen:ro
