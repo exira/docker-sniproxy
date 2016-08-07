@@ -1,4 +1,4 @@
-FROM exira/base:3.4.2
+FROM alpine:3.4
 
 MAINTAINER exira.com <info@exira.com>
 

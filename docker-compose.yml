@@ -10,6 +10,7 @@ services:
 
   sniproxy:
     image: exira/sniproxy:latest
+    container_name: sniproxy
     restart: always
     ports:
      - 80:80
