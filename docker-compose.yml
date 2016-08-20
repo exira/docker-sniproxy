@@ -19,3 +19,8 @@ services:
      - sniproxy-gen
     volumes_from:
      - sniproxy-gen:ro
+
+networks:
+  default:
+    external:
+      name: static-sites
